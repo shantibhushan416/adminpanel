@@ -18,7 +18,7 @@ import Search from "./Search";
 
 const LOGO = styled("img")({
   width: "content-fit",
-  height: "50px",
+  height: "40px",
 });
 
 function Header() {

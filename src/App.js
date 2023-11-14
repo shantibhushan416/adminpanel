@@ -5,7 +5,7 @@ import { SIDEBAR_CONFIG } from "./config/SideBar.config";
 
 function App() {
   return (
-    <div style={{ background: "#f8f8f8", width: "100wh", height: "100vh" }}>
+    <div style={{ background: "#f8f8f8"}}>
       <BrowserRouter>
         <AppLayout>
           <Routes>
