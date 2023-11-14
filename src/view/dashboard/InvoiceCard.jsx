@@ -12,11 +12,7 @@ import {
 
 function InvoiceCard() {
   return (
-    <Card
-      style={{ height: "286px" }}
-      sx={{ boxShadow: 3, bgcolor: "white" }}
-      variant="plain"
-    >
+    <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
         title="Invoices owed to you"
         titleTypographyProps={{ fontSize: "14px", fontWeight: 600 }}

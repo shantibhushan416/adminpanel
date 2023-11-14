@@ -8,7 +8,7 @@ function AppLayout({ children }) {
     <React.Fragment>
       <Header />
       <SideBar />
-      <Box sx={{ mt: 10, ml: 33 }}>{children}</Box>
+      <Box sx={{ mt: 10, ml: 33,mr:1 }}>{children}</Box>
     </React.Fragment>
   );
 }

@@ -29,12 +29,12 @@ const rows = [
 const Header = styled(Typography)({
   fontWeight: 600,
   opacity: 0.5,
-  fontSize:14
+  fontSize: 14,
 });
 
 export default function AccountWatchListCard() {
   return (
-    <Card style={{ height: "286px" }} sx={{ boxShadow: 3 }} variant="plain">
+    <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
         title="Account watchlist"
         titleTypographyProps={{ fontSize: "14px", fontWeight: 600 }}

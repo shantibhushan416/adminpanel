@@ -22,16 +22,12 @@ const LegendBox = styled(Box)({
 
 export default function CashFlowCard() {
   return (
-    <Card
-      style={{ height: "286px" }}
-      sx={{ boxShadow: 3, bgcolor: "white" }}
-      variant="plain"
-    >
+    <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
         title="Total cash flow"
         titleTypographyProps={{ fontSize: "14px", fontWeight: 600 }}
         action={
-          <Stack padding={{paddingTop:"1.5px"}} direction="row" gap={2}>
+          <Stack padding={{ paddingTop: "1.5px" }} direction="row" gap={2}>
             <Stack direction="row" alignItems="center" gap={1}>
               <LegendBox
                 sx={{

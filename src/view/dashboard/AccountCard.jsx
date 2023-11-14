@@ -12,7 +12,7 @@ import {
 import { KeyboardArrowDown } from "@mui/icons-material";
 export default function AccountCard() {
   return (
-    <Card style={{ height: "286px" }} sx={{ boxShadow: 3 }} variant="plain">
+    <Card  sx={{ boxShadow: 3,height:350 }} variant="plain">
       <CardHeader
         title="Checking Account"
         titleTypographyProps={{ fontSize: "14px", fontWeight: 600 }}
