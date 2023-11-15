@@ -1,18 +1,11 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import WaveForm from "../../component/WebForm";
+import { Button, Card, CardContent, CardHeader, Divider } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
+
 export default function AccountCard() {
   return (
-    <Card  sx={{ boxShadow: 3,height:350 }} variant="plain">
+    <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
         title="Checking Account"
         titleTypographyProps={{ fontSize: "14px", fontWeight: 600 }}
@@ -23,11 +16,14 @@ export default function AccountCard() {
               variant="outlined"
               size="small"
               endIcon={<KeyboardArrowDown />}
-              sx={{ mr: 2 }}
-              style={{
+              sx={{
+                mr: 2,
                 color: "black",
                 border: "1px solid black",
                 textTransform: "none",
+                fontWeight: 600,
+                fontSize: 12,
+                borderColor: "lightgray",
               }}
             >
               Manage
@@ -36,10 +32,13 @@ export default function AccountCard() {
               variant="outlined"
               size="small"
               endIcon={<KeyboardArrowDown />}
-              style={{
+              sx={{
                 color: "black",
                 border: "1px solid black",
                 textTransform: "none",
+                fontWeight: 600,
+                fontSize: 12,
+                borderColor: "lightgray",
               }}
             >
               January
@@ -48,7 +47,9 @@ export default function AccountCard() {
         }
       />
       <Divider />
-      <CardContent style={{ padding: "0" }}></CardContent>
+      <CardContent style={{ padding: "0" ,height:"300px"}}>
+        <WaveForm />
+      </CardContent>
     </Card>
   );
 }

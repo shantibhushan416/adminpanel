@@ -6,19 +6,18 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Container,
   Avatar,
-  Button,
   Tooltip,
   styled,
 } from "@mui/material";
 
-import { Adb, ArrowDropDown, Notifications } from "@mui/icons-material";
+import { ArrowDropDown, Notifications } from "@mui/icons-material";
 import Search from "./Search";
 
 const LOGO = styled("img")({
   width: "content-fit",
-  height: "40px",
+  height: "35px",
+  marginLeft: 10,
 });
 
 function Header() {

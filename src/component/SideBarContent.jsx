@@ -1,7 +1,7 @@
 import { SIDEBAR_CONFIG } from "../config/SideBar.config";
 
 import styled from "@emotion/styled";
-import { CreateOutlined } from "@mui/icons-material";
+
 import {
   Box,
   List,
@@ -9,7 +9,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const Container = styled(Box)({
@@ -18,6 +18,9 @@ const Container = styled(Box)({
     fontSize: 14,
     fontWeight: 500,
     cursor: "pointer",
+  },
+  "& > ul > li": {
+    marginLeft: 10,
   },
   "& > ul > a >li > svg": {
     marginRight: 20,
@@ -52,7 +55,7 @@ export default function SideBarContent() {
                 : null
             }
           >
-            <ListItemIcon sx={{ color: "inherit" }}>
+            <ListItemIcon sx={{ color: "inherit", marginLeft: 1.5 }}>
               <data.icon fontSize="small" />
             </ListItemIcon>
             <ListItemText primary={data.title} />

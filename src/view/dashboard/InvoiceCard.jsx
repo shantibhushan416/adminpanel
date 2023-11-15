@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardContent, CardHeader, Divider } from "@mui/material";
 
 function InvoiceCard() {
   return (

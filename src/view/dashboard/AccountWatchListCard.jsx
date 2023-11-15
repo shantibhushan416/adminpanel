@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
@@ -44,20 +43,31 @@ export default function AccountWatchListCard() {
         <Table>
           <TableHead style={{ marginBottom: "5px" }}>
             <TableRow>
-              <TableCell colSpan={2} style={{ pb: "20px", pl: "16px" }}>
+              <TableCell
+                size="small"
+                colSpan={2}
+                sx={{ borderBottom: "none", pb: 1, pt: 1 }}
+              >
                 <Header>Account</Header>
               </TableCell>
               <TableCell
+                size="small"
                 align="left"
                 scope="col"
-                sx={{ pb: "20px", pl: "16px", width: 100 }}
+                sx={{ borderBottom: "none", pb: 1, pt: 1, width: 100 }}
               >
                 <Header>This Month</Header>
               </TableCell>
               <TableCell
+                size="small"
                 align="left"
                 scope="col"
-                sx={{ pb: "20px", pl: "16px", width: 100 }}
+                sx={{
+                  borderBottom: "none",
+                  pb: 1,
+                  pt: 1,
+                  width: 100,
+                }}
               >
                 <Header>YTD</Header>
               </TableCell>
@@ -67,9 +77,9 @@ export default function AccountWatchListCard() {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell
-                  size="small"
                   colSpan={2}
                   style={{
+                    borderBottom: "none",
                     pb: "5px",
                     pl: "16px",
                     fontWeight: 600,
@@ -78,16 +88,26 @@ export default function AccountWatchListCard() {
                   {row.account}
                 </TableCell>
                 <TableCell
-                  size="small"
                   align="left"
-                  style={{ pb: "5px", pl: "16px", width: 100, fontWeight: 600 }}
+                  sx={{
+                    borderBottom: "none",
+                    pb: "5px",
+                    pl: "16px",
+                    width: 100,
+                    fontWeight: 600,
+                  }}
                 >
                   {row.thismonth}
                 </TableCell>
                 <TableCell
-                  size="small"
                   align="left"
-                  style={{ pb: "5px", pl: "16px", width: 100, fontWeight: 600 }}
+                  sx={{
+                    borderBottom: "none",
+                    pb: "5px",
+                    pl: "16px",
+                    width: 100,
+                    fontWeight: 600,
+                  }}
                 >
                   {row.ytd}
                 </TableCell>

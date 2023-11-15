@@ -12,7 +12,7 @@ export const SIDEBAR_CONFIG = [
   {
     name: "AccountBalance",
     title: "Account",
-    icon: Icons.AccountBalance,
+    icon: Icons.AccountBalanceWallet,
     path: "/account-balance",
     Component: Dashboard,
   },
