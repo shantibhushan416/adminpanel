@@ -1,4 +1,5 @@
 import React from "react";
+import BarChart from "../../component/barcharts/BarChart";
 import { Button, Card, CardContent, CardHeader, Divider } from "@mui/material";
 
 function InvoiceCard() {
@@ -21,7 +22,9 @@ function InvoiceCard() {
         }
       />
       <Divider />
-      <CardContent></CardContent>
+      <CardContent>
+        <BarChart/>
+      </CardContent>
     </Card>
   );
 }
