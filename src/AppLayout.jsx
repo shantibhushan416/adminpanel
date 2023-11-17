@@ -1,7 +1,8 @@
 import React from "react";
+import { Box } from "@mui/material";
 import Header from "./component/Header";
 import SideBar from "./component/SideBar";
-import { Box } from "@mui/material";
+
 
 function AppLayout({ children }) {
   return (

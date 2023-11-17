@@ -1,61 +1,64 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
-function BarChart() {
-  const [data] = useState([
-    { label: "Apples", value: 100 },
-    { label: "Bananas", value: 200 },
-    { label: "Oranges", value: 50 },
-    { label: "Kiwis", value: 150 },
-  ]);
-  const svgRef = useRef();
 
-  const w = 700;
-  const h = 300;
+const GRAPH_MARGIN = 20;
+const GRAPH_BAR_WIDTH = 10;
+
+const BarChart = ({ data, xAxisKey, yAxisKey }) => {
+  const svgRef = useRef();
+  const [svgDimension, setSvgDimension] = useState(null);
 
   useEffect(() => {
-    const svg = d3
-      .select(svgRef.current)
-      //   .select("body")
-      //   .append("svg")
-      .attr("width", w)
-      .attr("height", h)
-      .style("background-color", "#cccccc")
-      .style("padding", "50px")
-      .style("margin-top", "10px")
-      .style("overFlow", "visible")
-      .style("border-radius", "10px");
+    const svgDimension = svgRef.current?.getBoundingClientRect();
+    if (!svgDimension?.height) return;
 
+    setSvgDimension(svgDimension);
+    const { height: SVGHeight, width: SVGWidth } = svgDimension;
+
+    if (!data || data.length === 0) return;
+
+    const innerHeight = SVGHeight - 2 * GRAPH_MARGIN;
+    const innerWidth = SVGWidth - 2 * GRAPH_MARGIN;
+
+    const svg = d3.select(svgRef.current);
+
+    // Create scales
     const xScale = d3
       .scaleBand()
-      .domain(data.map((value, i) => value.label))
-      .range([0, w])
-      .padding(0.5);
+      .domain(data.map((d) => d[xAxisKey]))
+      .range([0, innerWidth])
+      .padding(1);
+
+    const maxValue = d3.max(data, (d) => d[yAxisKey]);
     const yScale = d3
       .scaleLinear()
-      .domain([0, Math.max(...data.map(({ value }) => value))])
-      .range([h, 0]);
+      .domain([0, maxValue])
+      .range([0, innerHeight]);
 
-    const xAxis = d3.axisBottom(xScale).ticks(data.length);
-    const yAxis = d3.axisLeft(yScale).ticks(5);
-    svg.append("g").call(xAxis).attr("transform", `translate(0, ${h})`);
-    svg.append("g").call(yAxis);
+    // Draw bars with rounded corners
+    svg
+      .selectAll("rect")
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("x", (d) => xScale(d[xAxisKey]) - GRAPH_BAR_WIDTH / 2)
+      .attr("y", (d) => SVGHeight - GRAPH_MARGIN - yScale(d[yAxisKey]))
+      .attr("width", GRAPH_BAR_WIDTH)
+      .attr("height", (d) => yScale(d[yAxisKey]))
+      .attr("fill", "green")
+      .attr("rx", 5)
+      .attr("ry", 5);
 
     svg
-      .selectAll("bar")
-      .data(...data.map(({ value }) => value))
-      .join("rect")
-      .attr("x", (v, i) => xScale(i))
-      .attr("y", yScale)
-      .attr("width", xScale.bandwidth())
-      .attr("height", (val) => h - yScale(val));
-  }, [data]);
+      .append("g")
+      .attr("transform", `translate(0,${SVGHeight - GRAPH_MARGIN})`)
+      .call(d3.axisBottom(xScale).tickSize(0))
+      .select(".domain")
+      .remove();
+  }, [svgDimension?.height,data]);
 
-  return (
-    <div style={{ alignContent: "center" }}>
-      <svg ref={svgRef}></svg>
-    </div>
-  );
-}
+  return <svg key={JSON.stringify(data)} ref={svgRef} style={{ width: "100%", height: "100%" }}></svg>;
+};
+
 export default BarChart;
-

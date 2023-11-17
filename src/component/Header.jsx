@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Logo } from "../constants/Constants";
 import {
   AppBar,
   Box,
@@ -10,7 +9,6 @@ import {
   Tooltip,
   styled,
 } from "@mui/material";
-
 import { ArrowDropDown, Notifications } from "@mui/icons-material";
 import Search from "./Search";
 
@@ -32,7 +30,7 @@ function Header() {
             style={{ color: "black" }}
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <LOGO src={Logo} />
+            <LOGO src="https://desk.assiduus.in/content/images/2023/08/Assiduus_TM_Logo--1-.png" alt="Logo" />
           </Typography>
           <Search />
           <Notifications style={{ color: "black" }} />

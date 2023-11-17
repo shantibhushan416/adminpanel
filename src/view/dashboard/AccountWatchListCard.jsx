@@ -12,18 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import styled from "@emotion/styled";
-
-function createData(account, thismonth, ytd) {
-  return { account, thismonth, ytd };
-}
-
-const rows = [
-  createData("Sales", 15999969, 999888),
-  createData("Advertising", 23752, 988999),
-  createData("Inventory", 262276, 79916897),
-  createData("Entertainment", 305843, 9473394),
-  createData("Product", 35763841, 638489),
-];
+import { useRandomData } from "./DashBoardContext";
 
 const Header = styled(Typography)({
   fontWeight: 600,
@@ -32,6 +21,8 @@ const Header = styled(Typography)({
 });
 
 export default function AccountWatchListCard() {
+  const { tableData } = useRandomData();
+
   return (
     <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
@@ -74,7 +65,7 @@ export default function AccountWatchListCard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {tableData.map((row) => (
               <TableRow key={row.name}>
                 <TableCell
                   colSpan={2}
@@ -97,7 +88,7 @@ export default function AccountWatchListCard() {
                     fontWeight: 600,
                   }}
                 >
-                  {row.thismonth}
+                  {row.thisMonth}
                 </TableCell>
                 <TableCell
                   align="left"

@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Box,
   Card,
@@ -8,14 +7,14 @@ import {
   Divider,
   Stack,
   Typography,
+  styled
 } from "@mui/material";
 import { green } from "@mui/material/colors";
-import styled from "@emotion/styled";
+
 
 const LegendBox = styled(Box)({
   height: "15px",
   width: "15px",
-  // display: "inline-block",
   borderRadius: 2,
 });
 

@@ -1,8 +1,10 @@
-import React from "react";
-import BarChart from "../../component/barcharts/BarChart";
 import { Button, Card, CardContent, CardHeader, Divider } from "@mui/material";
+import { useRandomData } from "./DashBoardContext";
+import BarChart from "../../component/BarChart";
 
 function InvoiceCard() {
+  const { chartData } = useRandomData();
+
   return (
     <Card sx={{ boxShadow: 3, height: 350 }} variant="plain">
       <CardHeader
@@ -22,8 +24,8 @@ function InvoiceCard() {
         }
       />
       <Divider />
-      <CardContent>
-        <BarChart/>
+      <CardContent style={{ padding: "0", height: "300px" }}>
+        <BarChart data={chartData} xAxisKey="date" yAxisKey="invoices" />
       </CardContent>
     </Card>
   );
